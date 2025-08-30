@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://csuit14nrejix"]
+
+[ext_resource type="Script" uid="uid://chsysx5lf28ha" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://nagmwybia0og" path="res://scenes/ui/main_menu.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dfxfw0j22osd6" path="res://scripts/classes/level_data.gd" id="2_sugp2"]
+
+[sub_resource type="Resource" id="Resource_jyhfs"]
+script = ExtResource("2_sugp2")
+level_id = 1
+level_name = "First level"
+level_unlocked = false
+level_path = "levels/level1"
+metadata/_custom_type_script = "uid://dfxfw0j22osd6"
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0wfyh")
+available_levels = Array[ExtResource("2_sugp2")]([SubResource("Resource_jyhfs")])
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="UI" instance=ExtResource("1_o5qli")]
