@@ -5,3 +5,5 @@ const RUNNING: String = "PlayerStateRunning";
 const JUMPING: String = "PlayerStateJumping";
 const FALLING: String = "PlayerStateFalling";
 const DASH: String = "PlayerStateDashing";
+const WALL: String = "PlayerStateWall";
+const WALL_JUMPING: String = "PlayerStateWallJumping";

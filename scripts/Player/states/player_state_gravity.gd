@@ -5,8 +5,12 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 func move_player(delta):
 	handle_gravity(delta);
 	handle_jump_timer(delta);
-	player.move_and_slide();
 	handle_coyote_timer(delta);
+	player.move_and_slide();
+
+func _handle_horizontal_input(delta) -> void:
+	var dir_x = Input.get_axis("move_left", "move_right");
+	player.velocity.x = dir_x * player.move_speed;
 
 func handle_gravity(delta):
 	if not player.is_on_floor():

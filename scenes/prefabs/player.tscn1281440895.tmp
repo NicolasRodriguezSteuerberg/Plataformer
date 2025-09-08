@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bnvwi5d7trxoe"]
+[gd_scene load_steps=32 format=3 uid="uid://bnvwi5d7trxoe"]
 
 [ext_resource type="Script" uid="uid://pjcladnj16gl" path="res://scripts/Player/player.gd" id="1_fivjd"]
 [ext_resource type="Texture2D" uid="uid://diqiuxkb6cvf4" path="res://assets/knight.png" id="2_56dyf"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://betcwgwph8tym" path="res://scripts/Player/states/player_state_jumping.gd" id="6_6o77n"]
 [ext_resource type="Script" uid="uid://lo5sg3hxnliv" path="res://scripts/Player/states/player_state_falling.gd" id="7_6v0jn"]
 [ext_resource type="Script" uid="uid://b6e3oisll20ym" path="res://scripts/Player/states/player_state_dashing.gd" id="8_r053x"]
-[ext_resource type="Script" uid="uid://c2mrs7vxomf8" path="res://scripts/Player/states/player_state_wall.gd" id="9_jybep"]
-[ext_resource type="Script" uid="uid://dkde4k24j6yh7" path="res://scripts/Player/states/player_state_wall_jumping.gd" id="10_50rl7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ckii"]
 radius = 6.0
@@ -202,12 +200,6 @@ script = ExtResource("7_6v0jn")
 [node name="PlayerStateDashing" type="Node" parent="StateMachine"]
 script = ExtResource("8_r053x")
 
-[node name="PlayerStateWall" type="Node" parent="StateMachine"]
-script = ExtResource("9_jybep")
-
-[node name="PlayerStateWallJumping" type="Node" parent="StateMachine"]
-script = ExtResource("10_50rl7")
-
 [node name="RoomDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 128
@@ -217,10 +209,5 @@ position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_7ckii")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="WallRaycast" type="RayCast2D" parent="."]
-position = Vector2(0, 2.5)
-target_position = Vector2(8, 0)
-collision_mask = 2
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]

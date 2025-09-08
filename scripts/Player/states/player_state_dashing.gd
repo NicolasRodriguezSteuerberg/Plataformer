@@ -19,14 +19,11 @@ func on_physics_process(delta: float) -> void:
 	if in_dash_frames > player.dash_frames:
 		return _change_state();
 	if in_dash_frames == 1:
-		print("FRAME 1")
 		return;
 	elif in_dash_frames >= 2 and in_dash_frames <= 4:
-		print("FRAME 2-4");
 		player.change_freeze(true);
 		return;
 	
-	print("FRAME 5-15")
 	player.velocity = player.dash_direction.normalized() * player.dash_velocity;
 	if in_dash_frames > 10:
 		if player.is_on_floor():
